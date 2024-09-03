@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python for NGS Analysis and Bioinformatics</title>
+   
 </head>
 <body>
     <h1>Python for NGS Analysis and Bioinformatics</h1>
@@ -37,8 +37,8 @@
 <p>This repository is primarily for personal learning, but if you have suggestions or improvements, feel free to open an issue or submit a pull request.</p>
 
 <h2>Contact</h2>
-<p>If you'd like to discuss bioinformatics, Python programming, or anything related, you can reach me at:</p>
+<p>If you're interested in hiring me, collaborating on a project, or discussing bioinformatics, Python programming, or anything related, you can reach me at:</p>
 <ul>
-    <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/yourgithubprofile">yourgithubprofile</a></li>
+    <li><strong>Email:</strong> <a href="mailto:gunjansarode.bioinfo@gmail.com">gunjansarode.bioinfo@gmail.com</a></li>
+    <li><strong>GitHub:</strong> <a href=https://github.com/gunjanglitch">gunjanglitch</a></li>
 </ul>
