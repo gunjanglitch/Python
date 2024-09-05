@@ -51,3 +51,37 @@ def speak(sentence, repeat=False):
         
 speak('Hello world!')
 speak('Hello world!', repeat=True)
+
+
+# Exercise-05 | Write a function called find_greater_than() that takes two parameters: a list of numbers and an integer threshold. The function should create a new list containing all numbers in the input list greater than the given threshold. The order of numbers in the result list should be the same as in the input list.
+
+def find_greater_than(int_list, threshold):
+    new_list = []
+    for integer in int_list:
+        if integer > threshold:
+            new_list.append(integer)
+    return new_list
+    
+    
+int_list = [-3, 2, 8, 15, 31, 5, 4, 12]
+threshold = 5 
+greater_than_threshold = find_greater_than(int_list,threshold)
+print('Numbers greater than', threshold, 'are', greater_than_threshold)
+
+
+# Exercise-06 | Write a function called find_censored_words() that accepts a list of strings and a list of special characters as its arguments, and prints all censored words from it one by one in separate lines. A word is considered censored if it has at least one character from the special_chars list. Use the word_list variable to test your function. 
+
+special_chars = ['!', '@', '#', '$', '%', '^', '&', '*']
+word_list = ['se#$et', 'Ver*%&$lo', 'di$#^$nt', 'c*%e', 'is', '#%$#@!@#$%^$#']
+
+def find_censored_words(word_list, special_chars):
+    censored_words = [] 
+    for word in word_list:
+        for character in word:
+            if character in special_chars:
+                censored_words.append(word)  
+                break
+
+    print('The censored words are:', ', '.join(censored_words))
+
+find_censored_words(word_list, special_chars)
