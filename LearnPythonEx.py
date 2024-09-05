@@ -85,3 +85,32 @@ def find_censored_words(word_list, special_chars):
     print('The censored words are:', ', '.join(censored_words))
 
 find_censored_words(word_list, special_chars)
+
+
+# Exercise-07 | Create a function find_short_long_word(words_list). The function should return a tuple of the shortest word in the list and the longest word in the list (in that order). If there are multiple words that qualify as the shortest word, return the first shortest word in the list. And if there are multiple words that qualify as the longest word, return the last longest word in the list.
+
+words = ['go', 'run', 'play', 'see', 'my', 'stay']
+def find_short_long_word(words_list):
+    short_word = words_list[0]
+    long_word = words_list[0]
+    for word in words_list:
+        if len(word) < len(short_word):
+            short_word = word 
+        elif len(word) >= len(long_word):
+            long_word = word
+    return(short_word, long_word)
+    
+wording = find_short_long_word(words)
+print('The shortest and longest word in the list is', wording)
+
+
+# Exercise-08 | we've prepared the test_results variable for you. Your task is to iterate over the values of the dictionary and print all names of people who received less than 45 points.
+
+test_results = {'Jenny': 50, 'Mathew': 45, 'Joe': 30, 'Peter': 40, 'Agness': 50, 'Samantha': 45, 'John': 20}
+
+for key, value in test_results.items():
+    if value < 45:
+        print(key)
+
+
+# Exercise-09 | 
