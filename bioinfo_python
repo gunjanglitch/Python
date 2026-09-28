@@ -1,0 +1,204 @@
+#DNA Length
+seq = "ATGCGATCGATCGATCG"
+length = len(seq)
+print(length)
+
+#nucleotide counting
+seq = "ATGCGATCGATCGATCG"
+A = seq.count("A")
+T = seq.count("T")
+G =  seq.count("G")
+C = seq.count("C")
+print("A: ", A)
+print("T: ", T)
+print("G: ", G)
+print("C: ", C)
+
+#GC Content
+seq="ATGCGATCGATCGATCG"
+length = len(seq)
+G = seq.count("G")
+C = seq.count("C")
+gc = (G + C) / length * 100
+print(gc)
+
+#reverse complement
+seq = "ATGCGT"
+def rev_compl(seq):
+    return seq.translate(str.maketrans("ATGC", "TACG"))[::-1]
+print(rev_compl(seq))
+
+#find motif
+seq = "ATGCGATGACCTATG"
+motif = "ATG"
+print(seq.count(motif))
+
+#convert DNA -> RNA
+seq = "ATGCGT"
+print(seq.replace("T", "U"))
+
+#find sequence above a length
+sequences = ["ATGC", "ATGCGATCG", "AT", "ATGCGATCGATCG", "ATG"]
+for seq in sequences:
+    print(seq, len(seq)>5)
+    
+#count ntd using a dictionary
+seq = "ATGCGATCGATGCC"
+counts = {}
+for s in seq:
+    counts[s] = counts.get(s,0) + 1
+print(counts)
+
+#creae GC function
+def gc_content(sequence):
+    length = len(seq)
+    G = seq.count("G")
+    C = seq.count("C")
+    gc = (G + C) / length * 100
+    return print(gc)
+gc_content("ATGCGC")
+
+#sequence classifier
+def classify_sequence(sequence):
+    if len(sequence) < 10:
+        return "short"
+    elif len(sequence) <= 20:
+        return "medium"
+    else:
+        return "long"
+print(classify_sequence("ATGCTAGCTGATAG"))
+
+#find the highest expressed gene
+expression = {
+    "TP53": 15.4,
+    "BRCA1": 25.7,
+    "EGFR": 10.2,
+    "MYC": 30.1,
+    "KRAS": 18.6
+}
+gene = max(expression, key=expression.get)
+print(gene)
+print(expression[gene])
+
+#fasta parser
+fasta = """>seq1
+ATGCGATCG
+>seq2
+ATGCCCAA
+>seq3
+ATGCGCGCG
+"""
+sequence = {}
+name = None 
+for line in fasta.strip().splitlines():
+    if line.startswith(">"):
+        name = line[1:].strip()
+        sequence[name] = ""
+    else:                          # ← same indent as `if`
+        sequence[name] += line.strip()   
+print(sequence)
+
+#find the longest sequence
+longest_name = max(sequence, key=lambda k: len(sequence[k]))
+print(f"ID:     {longest_name}")
+print(f"Seq:    {sequence[longest_name]}")
+print(f"Length: {len(sequence[longest_name])}")   
+
+#filter gene by expression
+expression = {
+    "TP53": 15.4,
+    "BRCA1": 25.7,
+    "EGFR": 10.2,
+    "MYC": 30.1,
+    "KRAS": 5.6
+}
+for gene, val in expression.items():
+    if val > 15:
+        print(gene)
+
+#mini bioinfo project
+sequence = {
+    "seq1": "ATGCGCGC",
+    "seq2": "ATATATAT",
+    "seq3": "ATGCCGTA",
+    "seq4": "GGGGCCCC"
+}
+
+for name, seq in sequence.items():
+    gc = (seq.count("G") + seq.count("C")) / len(seq) * 100
+    print(f"{name} | length: {len(seq)} | GC : {gc:.0f}%")
+    
+#write a function that takes dna seq and returns GC%
+def gc_content(seq):
+    gc = (seq.count("G") + seq.count("C")) / len(seq) * 100
+    return gc
+print(gc_content("ATCCCGCTAGTAGTAGATCATCGTAAA"))
+
+#filter sequence by the length
+sequence =  {
+    "seq1": "ATGCGATCG",
+    "seq2": "ATG",
+    "seq3": "ATGCGATCGATCGAT",
+    "seq4": "ATGC",
+    "seq5": "ATGCGATCGAT"
+}
+
+for id, seq in sequence.items():
+    if len(seq) >= 10: 
+        print(f"{id}: {seq}")
+
+#gc content for multiple sequence
+for id, seq in sequence.items():
+    gc = (seq.count("G") + seq.count("C")) / len(seq) * 100
+    print(f"{id}: {gc}")
+    
+#find the highest GC sequence
+best = max(sequence, key=lambda k: (sequence[k].count("G") + sequence[k].count("C")) / len(sequence[k]))
+gc = (sequence[best].count("G") + sequence[best].count("C")) / len(sequence[best]) * 100
+
+print(f"ID: {best}")
+print(f"GC: {gc:.0f}%")
+
+#find motif in multiple sequence
+sequences = {
+    "seq1": "ATGCGATCG",
+    "seq2": "CCCATGAAA",
+    "seq3": "GGGGCCCC",
+    "seq4": "ATGATGATG"
+}
+
+motif = "ATG"
+for id, seq in sequences.items():
+    if motif in seq:
+        print(id)
+        
+#count motif occurnce
+for id, seq in sequences.items():
+    moti = seq.count(motif)
+    print(f"{id}: {moti}")
+    
+#reverse complement multiple sequences
+def reverse_complement(sequence):
+    for id, seq in sequence.items():
+        rc = seq.translate(str.maketrans("ATGC", "TACG"))[::-1]
+        print(f"{name} -> {rc}")
+reverse_complement({
+    "seq1": "ATGC",
+    "seq2": "AATT",
+    "seq3": "CGCG"
+})
+
+#validate dna sequence
+def validate_seq(sequence):
+    return all(ch in "ATGC" for ch in sequence)
+print(validate_seq("ATGCGT"))
+print(validate_seq("ATGXGT"))
+print(validate_seq("ATGC123"))
+
+#nuclotide frequecny
+seq = "ATGCGATCGATGCC"
+freq = {base: seq.count(base) / len(seq) * 100 for base in "ATGC"}
+print(freq)
+
+#find the most frequent nucleotide
+
